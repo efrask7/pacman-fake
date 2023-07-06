@@ -35,7 +35,6 @@ document.onkeydown = (ev) => {
 }
 
 player.ontransitionend = () => {
-  console.log("TRANSITION END PLAYER")
   if (playerInfo.jumping) {
     player.style.transform = `translateY(${playerInfo.initialTransformY}px)`
     setTimeout(() => {
