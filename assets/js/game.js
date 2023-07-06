@@ -2,6 +2,7 @@ const game = document.getElementById("game")
 const pointsCounter = document.getElementById("points")
 const btnInit = document.getElementById("btn-init")
 const btnStart = document.getElementById("btn-start")
+const btnJump = document.getElementById("btn-jump")
 const intro = document.getElementById("intro")
 
 let gameStarted = false
@@ -13,18 +14,20 @@ btnInit.onclick = () => {
   game.style.animationPlayState = "running"
   player.style.animationPlayState = "running"
 
-  btnInit.style.opacity = 0
-  setInterval(() => {
-    btnInit.style.display = "none"
-    btnInit.style.opacity = 1
+  // btnInit.style.opacity = 0
+  btnInit.style.transform = "scale(0)"
+  setTimeout(() => {
+    // btnInit.style.opacity = 1
+    btnJump.style.transform = "scale(1)"
   }, 300);
 
   btnInit.onclick = null
 }
 
 const restartBtn = () => {
-  btnInit.style.display = "initial"
   btnInit.textContent = "Reiniciar"
+  btnJump.style.transform = "scale(0)"
+  btnInit.style.transform = "scale(1)"
 
   btnInit.onclick = () => {
     window.location = window.location.href + "?hideintro=1"

@@ -37,7 +37,6 @@ const handleNewEnemy = (enemy) => {
     }
 
     if (detectCollisionHorizontal() && detectCollisionVertical()) {
-      console.log("COLISION")
       playerCollisioned()
       enemy.style.transform = `translateX(-52rem) translateY(-100px)`
       enemy.style.animationPlayState = "paused"
@@ -45,6 +44,7 @@ const handleNewEnemy = (enemy) => {
   }
 
   const interval = setInterval(() => {
+    if (playerLost) return
     updatePacmanPos()
     detectColission()
   }, 60);
@@ -56,6 +56,7 @@ const handleNewEnemy = (enemy) => {
     enemyOnScreen = false
     playerPoints++
     pointsCounter.textContent = playerPoints
+    playSound("point")
   }
   
   enemy.style.transform = "translateX(-74rem) translateY(-100px)"

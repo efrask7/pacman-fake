@@ -26,11 +26,20 @@ setInterval(() => {
   updatePlayerPos()
 }, 60);
 
-document.onkeydown = (ev) => {
-  if (ev.key === "ArrowUp" && gameStarted && !playerInfo.jumping && !playerLost) {
+const jump = () => {
+  if (gameStarted && !playerInfo.jumping && !playerLost) {
     playerInfo.jumping = true
     player.style.animationPlayState = "paused"
     player.style.transform = `translateY(${playerInfo.initialTransformY - 85}px)`
+    playSound("jump")
+  }
+}
+
+btnJump.onclick = () => jump()
+
+document.onkeydown = (ev) => {
+  if (ev.key === "ArrowUp" || ev.code === "Space") {
+    jump()
   }
 }
 
@@ -52,4 +61,7 @@ const playerCollisioned = () => {
   game.style.animationPlayState = "paused"
   playerLost = true
   restartBtn()
+  playSound("die")
+  player.style.transition = "transform 1.5s"
+  player.style.transform = `translateY(${playerInfo.initialTransformY}px) scale(0)`
 }
