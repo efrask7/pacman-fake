@@ -1,0 +1,26 @@
+.pacman {
+  width: 55px;
+  height: 47px;
+  background: url("../pacman-xs.png");
+  animation-name: moving;
+  animation-duration: .6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(3);
+  animation-fill-mode: both;
+  position: absolute;
+  right: -60px;
+  bottom: 0;
+  transform: translateY(-100px);
+  transition: transform 3s;
+  transition-timing-function: linear;
+}
+
+@keyframes moving {
+  0% {
+    background-position: 0;
+  }
+  
+  100% {
+    background-position: -165px;
+  }
+}

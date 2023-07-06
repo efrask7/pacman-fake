@@ -1,0 +1,25 @@
+#player {
+  background: url("../player-sm.png");
+  width: 68px;
+  height: 77px;
+  animation-name: running;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: steps(8);
+  position: absolute;
+  left: 250px;
+  bottom: 0;
+  transform: translateY(-100px);
+  transition: transform .5s;
+  animation-play-state: paused;
+}
+
+@keyframes running {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -550px;
+  }
+}

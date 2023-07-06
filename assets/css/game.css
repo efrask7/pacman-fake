@@ -1,0 +1,43 @@
+#game {
+  width: 70rem;
+  height: 300px;
+  border: 1px solid #eee;
+  position: relative;
+  background: url("../background.jpg");
+  animation-name: movebg;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  overflow: hidden;
+}
+
+.points {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(-1rem) translateY(1rem);
+  border: 1px solid #222;
+  width: 8rem;
+  height: 2rem;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: 1px;
+
+  > span {
+    margin-left: .3rem;
+  }
+}
+
+@keyframes movebg {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -2000px;
+  }
+}

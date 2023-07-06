@@ -1,0 +1,61 @@
+#intro {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eee;
+  position: absolute;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  transition: transform .8s;
+
+  > h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3em;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+    transition: all .5s;
+  }
+
+  > .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  > .btn > button {
+    margin-top: 5rem;
+    width: 20rem;
+    height: 5rem;
+    border-radius: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: linear-gradient(to left, #a0a, #f06, #c09, #60f);
+    color: #eee;
+    text-shadow: 2px 1px #0f0;
+    border: none;
+    cursor: pointer;
+    animation-name: moveBGIntro;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-size: 800%;
+    transition: all .3s;
+    overflow: hidden;
+  }
+}
+
+@keyframes moveBGIntro {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% { 
+    background-position: 0 0;
+  }
+}
