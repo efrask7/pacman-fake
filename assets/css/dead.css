@@ -1,0 +1,124 @@
+.deadScreen {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #eee;
+  display: grid;
+  place-content: center;
+  transition: transform .8s;
+  transform: scale(0);
+}
+
+.deadScreen > div {
+  border: 1px solid #222;
+  height: 15rem;
+  width: 30rem;
+  border-radius: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: #232323;
+}
+
+.deadScreen p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  color: #eee;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.deadScreen button {
+  margin-top: 5rem;
+  width: 20rem;
+  height: 4rem;
+  border-radius: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(to left, #a0a, #f06, #c09, #60f);
+  color: #eee;
+  text-shadow: 2px 1px #0f0;
+  border: none;
+  cursor: pointer;
+  animation-name: moveBGIntro;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-size: 800%;
+  transition: all .3s;
+  overflow: hidden;
+}
+
+#newMaxPoints {
+  position: relative;
+  animation-name: changeColor;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  display: none;
+}
+
+#newMaxPoints::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to left, #a0a, #f06, #c09, #60f);
+  width: 5rem;
+  height: 1px;
+  background-size: 800%;
+  animation-name: rotateBG;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes changeColor {
+  0% {
+    color: #eee;
+  }
+
+  10% {
+    color: #f00;
+  }
+
+  20% {
+    color: #0f0;
+  }
+
+  30% {
+    color: #00f;
+  }
+  
+  40% {
+    color: #ff0;
+  }
+  
+  50% {
+    color: #0ff;
+  }
+  
+  60% {
+    color: #f0f;
+  }
+  
+  70% {
+    color: #f03;
+  }
+  
+  80% {
+    color: #f09;
+  }
+  
+  90% {
+    color: #506;
+  }
+  
+  100% {
+    color: #eee;
+  }
+}
