@@ -1,5 +1,6 @@
 const game = document.getElementById("game")
 const pointsCounter = document.getElementById("points")
+const pointsCounterInDeadScreen = document.getElementById("actual")
 const btnInit = document.getElementById("btn-init")
 const btnRestart = document.getElementById("btn-reset")
 const btnStart = document.getElementById("btn-start")
@@ -26,10 +27,10 @@ let maxPointsAlerted = false
 if (maxPoints === 0) maxPointsAlerted = true
 
 const checkForMaxPoints = () => {
-  console.log(playerPoints + " " + maxPoints)
   if (playerPoints > maxPoints) {
     maxPointsCounter.textContent = playerPoints
     newMaxPointsText.style.display = "block"
+    localStorage.setItem("maxPoints", playerPoints)
     playSound("maxPoints")
   }
 }
@@ -38,6 +39,7 @@ btnInit.onclick = () => {
   gameStarted = true
   game.style.animationPlayState = "running"
   player.style.animationPlayState = "running"
+  playSound("start")
 
   // btnInit.style.opacity = 0
   btnInit.style.transform = "scale(0)"
@@ -90,6 +92,7 @@ const updatePoints = () => {
   if (gameStarted && !playerLost) {  
     playerPoints++
     pointsCounter.textContent = playerPoints
+    pointsCounterInDeadScreen.textContent = playerPoints
   }
 }
 

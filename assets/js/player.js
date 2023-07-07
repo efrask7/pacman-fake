@@ -71,7 +71,6 @@ const playerCollisioned = () => {
   playSound("die")
   player.style.transition = "transform 1.5s"
   player.style.transform = `translateY(${playerInfo.initialTransformY}px) scale(0)`
-  localStorage.setItem("maxPoints", playerPoints)
   checkForMaxPoints()
   resetScreen.style.transform = "scale(1)"
 }
