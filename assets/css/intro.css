@@ -83,7 +83,7 @@
 }
 
 .github > nav:hover > a {
-  color: "#eee";
+  color: #eee;
 }
 
 @keyframes moveBGIntro {
