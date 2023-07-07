@@ -9,43 +9,6 @@
   display: grid;
   place-content: center;
   transition: transform .8s;
-
-  > h1 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 3em;
-    font-style: italic;
-    text-align: center;
-    width: 100%;
-    transition: all .5s;
-  }
-
-  > .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  > .btn > button {
-    margin-top: 5rem;
-    width: 20rem;
-    height: 5rem;
-    border-radius: 1rem;
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.5em;
-    font-weight: bold;
-    letter-spacing: 1px;
-    background: linear-gradient(to left, #a0a, #f06, #c09, #60f);
-    color: #eee;
-    text-shadow: 2px 1px #0f0;
-    border: none;
-    cursor: pointer;
-    animation-name: moveBGIntro;
-    animation-duration: 25s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    background-size: 800%;
-    transition: all .3s;
-    overflow: hidden;
-  }
 }
 
 .github {
@@ -54,36 +17,73 @@
   position: absolute;
   bottom: 0;
   margin-bottom: 1rem;
+}
 
-  > nav {
-    border: 1px solid #222;
-    width: 10rem;
-    height: 2rem;
-    margin: auto;
-    display: grid;
-    place-content: center;
-    border-radius: .5rem;
-    transition: all .3s;
-    overflow: hidden;
+#intro > h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 3em;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  transition: all .5s;
+}
 
-    > a {
-      text-decoration: none;
-      color: #222;
-      font-family: 'Kanit', sans-serif;
-      width: 100%;
-      height: 100%;
-      font-size: 1.2em;
-    }
-  }
+#intro > .btn {
+  width: 100%;
+  text-align: center;
+}
 
-  > nav:hover {
-    background-color: #232323;
-    transform: scale(1.2);
+#intro > .btn > button {
+  margin-top: 5rem;
+  width: 20rem;
+  height: 5rem;
+  border-radius: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(to left, #a0a, #f06, #c09, #60f);
+  color: #eee;
+  text-shadow: 2px 1px #0f0;
+  border: none;
+  cursor: pointer;
+  animation-name: moveBGIntro;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-size: 800%;
+  transition: all .3s;
+  overflow: hidden;
+}
 
-    > a {
-      color: #eee;
-    }
-  }
+.github > nav {
+  border: 1px solid #222;
+  width: 10rem;
+  height: 2rem;
+  margin: auto;
+  display: grid;
+  place-content: center;
+  border-radius: .5rem;
+  transition: all .3s;
+  overflow: hidden;
+}
+
+.github > nav > a {
+  text-decoration: none;
+  color: #222;
+  font-family: 'Kanit', sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2em;
+}
+
+.github > nav:hover {
+  background-color: #232323;
+  transform: scale(1.2);
+}
+
+.github > nav:hover > a {
+  color: "#eee";
 }
 
 @keyframes moveBGIntro {

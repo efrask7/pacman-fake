@@ -26,10 +26,10 @@
   justify-content: center;
   font-family:Georgia, 'Times New Roman', Times, serif;
   letter-spacing: 1px;
+}
 
-  > span {
-    margin-left: .3rem;
-  }
+.points > span {
+  margin-block-end: .3rem;
 }
 
 @keyframes movebg {
