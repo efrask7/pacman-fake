@@ -10,7 +10,6 @@
   left: 250px;
   bottom: 0;
   transform: translateY(-100px);
-  transition: transform .5s;
   animation-play-state: paused;
 }
 

@@ -5,9 +5,14 @@ const btnStart = document.getElementById("btn-start")
 const btnJump = document.getElementById("btn-jump")
 const intro = document.getElementById("intro")
 
+const URIWithoutIntro = window.location.search 
+  ? window.location.href
+  : window.location.href + "?hideintro=1"
+
 let gameStarted = false
 let playerLost = false
 let playerPoints = 0
+let pointsActualSpeed = 500
 
 btnInit.onclick = () => {
   gameStarted = true
@@ -30,7 +35,7 @@ const restartBtn = () => {
   btnInit.style.transform = "scale(1)"
 
   btnInit.onclick = () => {
-    window.location = window.location.href + "?hideintro=1"
+    window.location = URIWithoutIntro
   }
 }
 
@@ -54,6 +59,22 @@ btnStart.onclick = () => {
 if (window.location.search) {
   const vars = new URLSearchParams(window.location.search)
   if (vars.get("hideintro")) {
-    intro.style.transform = "translateY(-200%)"
+    intro.style.display = "none"
   }
 }
+
+const updatePoints = () => {
+  if (gameStarted && !playerLost) {  
+    playerPoints++
+    pointsCounter.textContent = playerPoints
+  }
+}
+
+const generateTimeout = () => {
+  return setTimeout(() => {
+    updatePoints()
+    generateTimeout()
+  }, pointsActualSpeed)
+}
+
+generateTimeout()

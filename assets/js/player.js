@@ -4,8 +4,10 @@ const playerInfo = {
   width: 68,
   heigth: 77,
   initialTransformY: -100,
-  jumping: false
+  jumping: false,
+  speed: ".5s"
 }
+
 
 let playerPos = {
   left: 0,
@@ -22,6 +24,7 @@ const updatePlayerPos = () => {
 }
 
 setInterval(() => {
+  player.style.transition = playerInfo.speed
   if (!gameStarted) return
   updatePlayerPos()
 }, 60);
@@ -40,6 +43,10 @@ btnJump.onclick = () => jump()
 document.onkeydown = (ev) => {
   if (ev.key === "ArrowUp" || ev.code === "Space") {
     jump()
+  }
+  if (ev.key === "ArrowDown") {
+    playerInfo.jumping = false
+    player.style.transform = `translateY(${playerInfo.initialTransformY}px)`
   }
 }
 
@@ -64,4 +71,5 @@ const playerCollisioned = () => {
   playSound("die")
   player.style.transition = "transform 1.5s"
   player.style.transform = `translateY(${playerInfo.initialTransformY}px) scale(0)`
+  localStorage.setItem("maxPoints", playerPoints)
 }

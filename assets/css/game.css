@@ -32,6 +32,43 @@
   margin-block-end: .3rem;
 }
 
+.danger-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(-130px) translateX(-2rem);
+  font-size: 1.8em;
+  border: 1px solid #222;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-content: center;
+  animation-name: alertIcon;
+  animation-duration: .8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  display: none;
+}
+
+@keyframes alertIcon {
+  0% {
+    background-color: #eee;
+    /* color: #222 ; */
+  }
+
+  50% {
+    background-color: #a009;
+    /* color: #eee; */
+  }
+
+  100% {
+    background-color: #eee;
+    /* color: #222; */
+  }
+}
+
 @keyframes movebg {
   0% {
     background-position: 0;

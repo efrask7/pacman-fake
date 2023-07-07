@@ -11,7 +11,65 @@
   right: -60px;
   bottom: 0;
   transform: translateY(-100px);
+}
+
+.speed-slow {
   transition: transform 3s;
+  transition-timing-function: linear;
+}
+
+.speed-slow-s {
+  transition: transform 2.7s;
+  transition-timing-function: linear;
+}
+
+.speed-slow-n {
+  transition: transform 2.5s;
+  transition-timing-function: linear;
+}
+
+.speed-slow-f {
+  transition: transform 2.3s;
+  transition-timing-function: linear;
+}
+
+.speed-normal {
+  transition: transform 2s;
+  transition-timing-function: linear;
+}
+
+.speed-normal-s {
+  transition: transform 1.7s;
+  transition-timing-function: linear;
+}
+
+.speed-normal-n {
+  transition: transform 1.5s;
+  transition-timing-function: linear;
+}
+
+.speed-normal-f {
+  transition: transform 1.3s;
+  transition-timing-function: linear;
+}
+
+.speed-fast {
+  transition: transform 1s;
+  transition-timing-function: linear;
+}
+
+.speed-fast-s {
+  transition: transform .7s;
+  transition-timing-function: linear;
+}
+
+.speed-fast-n {
+  transition: transform .5s;
+  transition-timing-function: linear;
+}
+
+.speed-fast-f {
+  transition: transform .3s;
   transition-timing-function: linear;
 }
 
