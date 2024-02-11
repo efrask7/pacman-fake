@@ -39,7 +39,7 @@ const generateTimeoutForEnemySpeed = () => {
     }
 
     if (actualSpeed === "fast") {
-      playerInfo.speed = ".2s"
+      GamePlayer.updateSpeed(".2s")
     }
 
     pointsActualSpeed = pointsSpeed[actualSpeed]
@@ -72,6 +72,8 @@ const handleNewEnemy = (enemy) => {
   }
 
   const detectColission = () => {
+    const playerPos = GamePlayer.getPos()
+    const playerInfo = GamePlayer.getSize()
     const playerPosX = playerPos.left + playerInfo.width
     const pacmanPosX = enemyPos.left + 55
     const playerPosY = playerPos.top + playerInfo.heigth
@@ -105,9 +107,7 @@ const handleNewEnemy = (enemy) => {
     if (playerLost) return
     game.removeChild(enemy)
     enemyOnScreen = false
-    // playerPoints++
-    // pointsCounter.textContent = playerPoints
-    playSound("point")
+    Sounds.play("point")
   }
   
   enemy.style.transform = "translateX(-74rem) translateY(-100px)"

@@ -1,40 +1,17 @@
 const player = document.getElementById("player")
 
-const playerInfo = {
-  width: 68,
-  heigth: 77,
-  initialTransformY: -100,
-  jumping: false,
-  speed: ".5s"
-}
-
-
-let playerPos = {
-  left: 0,
-  top: 0
-}
-
-const updatePlayerPos = () => {
-  const { left, top } = document.getElementById("player").getBoundingClientRect()
-
-  playerPos = {
-    left,
-    top
-  }
-}
+const GamePlayer = new Player({ width: 68, heigth: 77 }, -100, ".5s")
 
 setInterval(() => {
-  player.style.transition = playerInfo.speed
+  GamePlayer.updateStyle("transition", GamePlayer.getSpeed())
   if (!gameStarted) return
-  updatePlayerPos()
+  GamePlayer.updatePos()
 }, 60);
 
 const jump = () => {
-  if (gameStarted && !playerInfo.jumping && !playerLost) {
-    playerInfo.jumping = true
-    player.style.animationPlayState = "paused"
-    player.style.transform = `translateY(${playerInfo.initialTransformY - 85}px)`
-    playSound("jump")
+  if (gameStarted && !GamePlayer.getJumping() && !playerLost) {
+    GamePlayer.jump()
+    Sounds.play("jump")
   }
 }
 
@@ -45,32 +22,25 @@ document.onkeydown = (ev) => {
     jump()
   }
   if (ev.key === "ArrowDown") {
-    playerInfo.jumping = false
-    player.style.transform = `translateY(${playerInfo.initialTransformY}px)`
+    GamePlayer.fall()
   }
 }
 
 player.ontransitionend = () => {
-  if (playerInfo.jumping) {
-    player.style.transform = `translateY(${playerInfo.initialTransformY}px)`
-    setTimeout(() => {
-      playerInfo.jumping = false
-    }, 500);
-  }
-
-  if (!playerInfo.jumping) {
-    player.style.animationPlayState = "running"
+  if (GamePlayer.getJumping()) {
+    GamePlayer.animFall()
+  } 
+  else if (!GamePlayer.getJumping()) {
+    GamePlayer.animRunning()
   }
 }
 
 const playerCollisioned = () => {
-  player.style.animationPlayState = "paused"
+  GamePlayer.collision()
   game.style.animationPlayState = "paused"
   playerLost = true
   restartBtn()
-  playSound("die")
-  player.style.transition = "transform 1.5s"
-  player.style.transform = `translateY(${playerInfo.initialTransformY}px) scale(0)`
+  Sounds.play("die")
   checkForMaxPoints()
   resetScreen.style.transform = "scale(1)"
 }

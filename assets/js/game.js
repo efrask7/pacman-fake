@@ -26,12 +26,14 @@ let maxPointsAlerted = false
 
 if (maxPoints === 0) maxPointsAlerted = true
 
+const Sounds = new AudioPlayer(game_sounds)
+
 const checkForMaxPoints = () => {
   if (playerPoints > maxPoints) {
     maxPointsCounter.textContent = playerPoints
     newMaxPointsText.style.display = "block"
     localStorage.setItem("maxPoints", playerPoints)
-    playSound("maxPoints")
+    Sounds.play("maxPoitns")
   }
 }
 
@@ -39,12 +41,10 @@ btnInit.onclick = () => {
   gameStarted = true
   game.style.animationPlayState = "running"
   player.style.animationPlayState = "running"
-  playSound("start")
+  Sounds.play("start")
 
-  // btnInit.style.opacity = 0
   btnInit.style.transform = "scale(0)"
   setTimeout(() => {
-    // btnInit.style.opacity = 1
     btnJump.style.transform = "scale(1)"
   }, 300);
 
@@ -101,7 +101,7 @@ const generateTimeout = () => {
     updatePoints()
     generateTimeout()
     if (playerPoints > maxPoints && !maxPointsAlerted) {
-      playSound("maxPointsInGame")
+      Sounds.play("maxPointsInGame")
       maxPointsAlerted = true
     }
   }, pointsActualSpeed)
